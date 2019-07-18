@@ -1,0 +1,39 @@
+FROM nginx:1.16.0
+COPY nginx.conf /etc/nginx/
+COPY htpasswd.arquitetura /etc/nginx
+COPY htpasswd.suporte /etc/nginx
+COPY htpasswd.users /etc/nginx
+RUN mkdir -p /etc/nginx/ssl
+COPY ssl/ /etc/nginx/ssl/
+#Folder proxy-reverso-interno
+RUN mkdir -p /var/log/nginx/api-int-hml.autoglass.com.br \
+/var/log/nginx/app-hml.autoglass.com.br \
+/var/log/nginx/dotnet-hml.autoglass.com.br \
+/var/log/nginx/logs-hml.autoglass.com.br \
+/var/log/nginx/api-int-qa.autoglass.com.br \
+/var/log/nginx/app-qa.autoglass.com.br \
+/var/log/nginx/logs-qa.autoglass.com.br \
+/var/log/nginx/api-farm-int.autoglass.com.br \
+/var/log/nginx/api-int.autoglass.com.br \
+/var/log/nginx/jobs.autoglass.com.br \
+/var/log/nginx/jobs-prod-01.autoglass.com.br \
+/var/log/nginx/logs.autoglass.com.br \
+/var/log/nginx/portalnovosprodutos.autoglass.com.br \
+/var/log/nginx/siengeweb.autoglass.com.br \
+/var/log/nginx/api-telefonia.autoglass.com.br \
+/var/log/nginx/osb-int.autoglass.com.br \
+#folder proxy-reverso-externo
+/var/log/nginx/api.autoglass.com.br \
+/var/log/nginx/aws.autoglass.com.br \
+/var/log/nginx/www.cecautoglass.com.br \
+/var/log/nginx/edocs.autoglass.com.br \
+/var/log/nginx/hcm.autoglass.com.br \
+/var/log/nginx/maps.autoglass.com.br \
+/var/log/nginx/oag.autoglass.com.br \
+/var/log/nginx/pontohcm.autoglass.com.br \
+/var/log/nginx/radar.autoglass.com.br \
+/var/log/nginx/rh.autoglass.com.br \
+/var/log/nginx/sde.autoglass.com.br \
+/var/log/nginx/api-hml.autoglass.com.br \
+/var/log/nginx/oag-hml.autoglass.com.br \
+/var/log/nginx/abraja.com.br
